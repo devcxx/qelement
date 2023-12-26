@@ -1,9 +1,15 @@
 
+CONFIG += fontAwesomeFree
+
+include(QtAwesome/QtAwesome.pri)
+
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/el_global.h \
     $$PWD/el_link.h \
+    $$PWD/el_input.h \
 
 SOURCES += \
     $$PWD/el_link.cpp \
-
-RESOURCES += font.qrc
+    $$PWD/el_input.cpp \
