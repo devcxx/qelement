@@ -1,4 +1,5 @@
 #include "el_input.h"
+#include "el_style.h"
 #include "QtAwesome.h"
 #include <QApplication>
 #include <QStyle>

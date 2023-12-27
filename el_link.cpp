@@ -1,4 +1,5 @@
 #include "el_link.h"
+#include "el_style.h"
 #include <QColor>
 
 EL_BEGIN_NAMESPACE
@@ -25,6 +26,7 @@ QString Link::getLink()
 
 void Link::mousePressEvent(QMouseEvent* event)
 {
+    Q_UNUSED(event);
     emit linkClicked(_link);
 }
 
@@ -55,6 +57,8 @@ QString Link::getColor(Type type)
         return Color::Danger;
     case Info:
         return Color::Info;
+    default:
+        return Color::DefaultText;
     }
 }
 
@@ -73,6 +77,8 @@ QString Link::getDisabledColor(Type type)
         return Color::DangerDisabled;
     case Info:
         return Color::InfoDisabled;
+    default:
+        return Color::DefaultTextDisabled;
     }
 }
 
