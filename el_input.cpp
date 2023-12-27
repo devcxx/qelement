@@ -1,6 +1,6 @@
 #include "el_input.h"
-#include "el_style.h"
 #include "QtAwesome.h"
+#include "el_style.h"
 #include <QApplication>
 #include <QStyle>
 
@@ -9,10 +9,14 @@ EL_BEGIN_NAMESPACE
 Input::Input(Type type, QWidget* parent)
     : QLineEdit(parent)
 {
-    QString styleSheet("QLineEdit { border: 1px solid #dcdfe6; border-radius: 4px;font-family: Microsoft YaHei; font-size: 14px; color: #606266;padding-left: 15px; padding-right: 15px; height: 30px}");
-    styleSheet.append("QLineEdit:focus { border: 1px solid #409eff; }");
-    setStyleSheet(styleSheet);
+    QString styleSheet;
+    styleSheet += "QLineEdit { border: 1px solid #dcdfe6; border-radius: 4px; }";
+    styleSheet += "QLineEdit:focus { border: 1px solid #409eff; }";
+    styleSheet += "QLineEdit { font-family: Microsoft YaHei; font-size: 14px; }";
+    styleSheet += "QLineEdit { padding-left: 15px; padding-right: 15px; }";
+    styleSheet += "QLineEdit { color: #606266; min-height: 40px; }";
 
+    setStyleSheet(styleSheet);
     QVariantMap options;
     options.insert("color", QColor(Color::PlaceholderText));
     options.insert("color-active", QColor(Color::SecondaryText));

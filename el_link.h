@@ -36,7 +36,6 @@ protected:
     QString getDisabledColor(Type type);
 
 private:
-    Type _type;
     QString _link;
 };
 

@@ -6,10 +6,11 @@ EL_BEGIN_NAMESPACE
 
 Link::Link(Type type, QWidget* parent)
     : QLabel(parent)
-    , _type(type)
 {
     QWidget::setAttribute(Qt::WA_TranslucentBackground);
-    QString styleSheet = QString("QLabel { color : %1;font-family: Microsoft YaHei;font-size: 14px} QLabel::disabled { color : %2;}").arg(getColor(type), getDisabledColor(type));
+    QString styleSheet;
+    styleSheet += QString("QLabel { color : %1;font-family: Microsoft YaHei;font-size: 14px; max-height: 40px; }").arg(getColor(type));
+    styleSheet += QString("QLabel::disabled { color : %1;}").arg(getDisabledColor(type));
     setStyleSheet(styleSheet);
     setMouseTracking(true);
 }
