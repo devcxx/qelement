@@ -33,10 +33,14 @@ public:
     Button(const QIcon& icon, ButtonType type = BT_Default, ButtonStyle style = BS_Default, QWidget* parent = nullptr);
     // 文字图标按钮
     Button(const QString& text, const QIcon& icon, ButtonType type = BT_Default, ButtonStyle style = BS_Default, QWidget* parent = nullptr);
+    // FontAwesome图标按钮
+    Button(int character, ButtonType type = BT_Default, ButtonStyle style = BS_Circle, QWidget* parent = nullptr);
+    // FontAwesome文字图标按钮
+    Button(const QString& text, int character, ButtonType type = BT_Default, ButtonStyle style = BS_Default, QWidget* parent = nullptr);
 
 protected:
     QString getBorderStyle(ButtonType type, ButtonStyle style);
-    QString getTextStyle(ButtonType type);
+    QString getColorStyle(ButtonType type);
     QString getBkColorStyle(ButtonType type);
 };
 

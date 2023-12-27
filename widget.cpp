@@ -1,4 +1,5 @@
 #include "widget.h"
+#include "QtAwesome.h"
 #include "el_button.h"
 #include "el_input.h"
 #include "el_link.h"
@@ -75,6 +76,25 @@ Widget::Widget(QWidget* parent)
     hLayout4->addWidget(rbtn4);
     hLayout4->addWidget(rbtn5);
     hLayout4->addWidget(rbtn6);
+
+    // ICON 按钮
+    QHBoxLayout* hLayout5 = new QHBoxLayout();
+    vLayout->addLayout(hLayout5);
+    el::Button* ibtn = new el::Button(fa::fa_add, el::Button::BT_Default);
+    el::Button* ibtn2 = new el::Button(fa::fa_add, el::Button::BT_Primary);
+    el::Button* ibtn3 = new el::Button(fa::fa_bookmark, el::Button::BT_Success);
+    el::Button* ibtn4 = new el::Button(fa::fa_camera, el::Button::BT_Warning);
+    el::Button* ibtn5 = new el::Button(fa::fa_dashboard, el::Button::BT_Danger);
+    el::Button* ibtn6 = new el::Button(fa::fa_edit, el::Button::BT_Info);
+    el::Button* ibtn7 = new el::Button("搜索", fa::fa_search, el::Button::BT_Primary);
+
+    hLayout5->addWidget(ibtn);
+    hLayout5->addWidget(ibtn2);
+    hLayout5->addWidget(ibtn3);
+    hLayout5->addWidget(ibtn4);
+    hLayout5->addWidget(ibtn5);
+    hLayout5->addWidget(ibtn6);
+    hLayout5->addWidget(ibtn7);
 
     setLayout(vLayout);
 }

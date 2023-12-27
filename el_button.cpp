@@ -1,4 +1,5 @@
 #include "el_button.h"
+#include "QtAwesome.h"
 
 EL_BEGIN_NAMESPACE
 
@@ -18,9 +19,39 @@ Button::Button(const QString& text, const QIcon& icon, ButtonType type, ButtonSt
     QString styleSheet;
     styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px; min-height: 40px; }";
     styleSheet += getBorderStyle(type, style);
-    styleSheet += getTextStyle(type);
+    styleSheet += getColorStyle(type);
     styleSheet += getBkColorStyle(type);
     setStyleSheet(styleSheet);
+}
+
+Button::Button(int character, ButtonType type, ButtonStyle style, QWidget* parent)
+    : Button(QString(), character, type, style, parent)
+{
+}
+
+Button::Button(const QString& text, int character, ButtonType type, ButtonStyle style, QWidget* parent)
+    : QPushButton(text, parent)
+{
+    QVariantMap options;
+    if (type == BT_Default) {
+        options.insert("color", QColor("#606266"));
+        options.insert("color-active", QColor("#409eff"));
+    } else {
+        options.insert("color", QColor("#ffffff"));
+        options.insert("color-active", QColor("#ffffff"));
+    }
+
+    QIcon icon = fa::QtAwesome::instance().icon(fa::fa_solid, character, options);
+    setIcon(icon);
+    QString styleSheet;
+    styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px; min-height: 40px;}";
+    styleSheet += getBorderStyle(type, style);
+    styleSheet += getColorStyle(type);
+    styleSheet += getBkColorStyle(type);
+    setStyleSheet(styleSheet);
+    if (style == BS_Circle) {
+        setFixedSize(40, 40);
+    }
 }
 
 QString Button::getBorderStyle(ButtonType type, ButtonStyle style)
@@ -45,46 +76,46 @@ QString Button::getBorderStyle(ButtonType type, ButtonStyle style)
     return borderStyle;
 }
 
-QString Button::getTextStyle(ButtonType type)
+QString Button::getColorStyle(ButtonType type)
 {
-    QString textStyle;
+    QString colorStyle;
     if (type == BT_Default) {
-        textStyle += "QPushButton { color: #606266 }";
-        textStyle += "QPushButton:hover { color: #409eff }";
-        textStyle += "QPushButton:pressed { color: #409eff }";
+        colorStyle += "QPushButton { color: #606266; }";
+        colorStyle += "QPushButton:hover { color: #409eff; }";
+        colorStyle += "QPushButton:pressed { color: #409eff; }";
     } else {
-        textStyle += "QPushButton { color: #ffffff }";
+        colorStyle += "QPushButton { color: #ffffff; }";
     }
-    return textStyle;
+    return colorStyle;
 }
 
 QString Button::getBkColorStyle(ButtonType type)
 {
     QString bkColorStyle;
     if (type == BT_Default) {
-        bkColorStyle += "QPushButton { background: #ffffff }";
-        bkColorStyle += "QPushButton:hover { background: #ecf5ff }";
-        bkColorStyle += "QPushButton:pressed { background: ##ecf5ff }";
+        bkColorStyle += "QPushButton { background: #ffffff; }";
+        bkColorStyle += "QPushButton:hover { background: #ecf5ff; }";
+        bkColorStyle += "QPushButton:pressed { background: #ecf5ff; }";
     } else if (type == BT_Primary) {
-        bkColorStyle += "QPushButton { background: #409eff }";
-        bkColorStyle += "QPushButton:hover { background: #66b1ff }";
-        bkColorStyle += "QPushButton:pressed { background: #3a8ee6 }";
+        bkColorStyle += "QPushButton { background: #409eff; }";
+        bkColorStyle += "QPushButton:hover { background: #66b1ff; }";
+        bkColorStyle += "QPushButton:pressed { background: #3a8ee6; }";
     } else if (type == BT_Success) {
-        bkColorStyle += "QPushButton { background: #67c23a }";
-        bkColorStyle += "QPushButton:hover { background: #85ce61 }";
-        bkColorStyle += "QPushButton:pressed { background: #5daf34 }";
+        bkColorStyle += "QPushButton { background: #67c23a; }";
+        bkColorStyle += "QPushButton:hover { background: #85ce61; }";
+        bkColorStyle += "QPushButton:pressed { background: #5daf34; }";
     } else if (type == BT_Warning) {
-        bkColorStyle += "QPushButton { background: #e6a23c }";
-        bkColorStyle += "QPushButton:hover { background: #ebb563 }";
-        bkColorStyle += "QPushButton:pressed { background: #cf9236 }";
+        bkColorStyle += "QPushButton { background: #e6a23c; }";
+        bkColorStyle += "QPushButton:hover { background: #ebb563; }";
+        bkColorStyle += "QPushButton:pressed { background: #cf9236; }";
     } else if (type == BT_Danger) {
-        bkColorStyle += "QPushButton { background: #f56c6c }";
-        bkColorStyle += "QPushButton:hover { background: #f78989 }";
-        bkColorStyle += "QPushButton:pressed { background: #dd6161 }";
+        bkColorStyle += "QPushButton { background: #f56c6c; }";
+        bkColorStyle += "QPushButton:hover { background: #f78989; }";
+        bkColorStyle += "QPushButton:pressed { background: #dd6161; }";
     } else if (type == BT_Info) {
-        bkColorStyle += "QPushButton { background: #909399 }";
-        bkColorStyle += "QPushButton:hover { background: #a6a9ad }";
-        bkColorStyle += "QPushButton:pressed { background: #82848a }";
+        bkColorStyle += "QPushButton { background: #909399; }";
+        bkColorStyle += "QPushButton:hover { background: #a6a9ad; }";
+        bkColorStyle += "QPushButton:pressed { background: #82848a; }";
     }
     return bkColorStyle;
 }
