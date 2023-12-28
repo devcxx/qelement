@@ -34,11 +34,11 @@ Button::Button(const QString& text, int character, ButtonType type, ButtonStyle 
 {
     QVariantMap options;
     if (type == BT_Default) {
-        options.insert("color", QColor("#606266"));
-        options.insert("color-active", QColor("#409eff"));
+        options.insert("color", QColor(0x606266));
+        options.insert("color-active", QColor(0x409eff));
     } else {
-        options.insert("color", QColor("#ffffff"));
-        options.insert("color-active", QColor("#ffffff"));
+        options.insert("color", QColor(0xffffff));
+        options.insert("color-active", QColor(0xffffff));
     }
 
     QIcon icon = fa::QtAwesome::instance().icon(fa::fa_solid, character, options);
