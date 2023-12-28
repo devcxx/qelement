@@ -3,6 +3,7 @@
 #include "el_button.h"
 #include "el_input.h"
 #include "el_link.h"
+#include "el_switch.h"
 #include "ui_widget.h"
 #include <QGraphicsDropShadowEffect>
 #include <QHBoxLayout>
@@ -14,6 +15,8 @@ Widget::Widget(QWidget* parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    setStyleSheet("background-color: white");
+
     QVBoxLayout* vLayout = new QVBoxLayout();
 
     QHBoxLayout* hLayout = new QHBoxLayout();
@@ -95,6 +98,14 @@ Widget::Widget(QWidget* parent)
     hLayout5->addWidget(ibtn5);
     hLayout5->addWidget(ibtn6);
     hLayout5->addWidget(ibtn7);
+
+    QHBoxLayout* hLayout6 = new QHBoxLayout();
+    vLayout->addLayout(hLayout6);
+    el::Switch* switch1 = new el::Switch("开关");
+    el::Switch* switch2 = new el::Switch("禁用开关");
+    switch2->setDisabled(true);
+    hLayout6->addWidget(switch1);
+    hLayout6->addWidget(switch2);
 
     setLayout(vLayout);
 }
