@@ -33,6 +33,35 @@ const Q_DECL_UNUSED char SecondaryText[] = "#909399";
 const Q_DECL_UNUSED char PlaceholderText[] = "#C0C4CC";
 }
 
+// Border 边框
+// https://e3.shengxinjing.cn/#/component/border
+namespace Border {
+// 无圆角
+const Q_DECL_UNUSED int None = 0;
+// 小圆角
+const Q_DECL_UNUSED int Small = 2;
+// 大圆角
+const Q_DECL_UNUSED int Big = 4;
+// 圆形圆角
+const Q_DECL_UNUSED int Circle = 30;
+}
+
+// 字号 (像素px)
+namespace FontSize {
+// 辅助文字
+const Q_DECL_UNUSED int ExtraSamll = 12;
+// 正文（小）
+const Q_DECL_UNUSED int Samll = 13;
+// 正文
+const Q_DECL_UNUSED int Base = 14;
+// 小标题
+const Q_DECL_UNUSED int Medium = 16;
+// 标题
+const Q_DECL_UNUSED int Large = 18;
+// 主标题
+const Q_DECL_UNUSED int ExtraLarge = 20;
+}
+
 EL_END_NAMESPACE
 
 #endif // EL_STYLE_H
