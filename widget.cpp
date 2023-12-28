@@ -1,10 +1,12 @@
 #include "widget.h"
 #include "QtAwesome.h"
+#include "el_avatar.h"
 #include "el_button.h"
 #include "el_input.h"
 #include "el_link.h"
 #include "el_switch.h"
 #include "ui_widget.h"
+
 #include <QGraphicsDropShadowEffect>
 #include <QHBoxLayout>
 
@@ -99,6 +101,7 @@ Widget::Widget(QWidget* parent)
     hLayout5->addWidget(ibtn6);
     hLayout5->addWidget(ibtn7);
 
+    // Switch 开关
     QHBoxLayout* hLayout6 = new QHBoxLayout();
     vLayout->addLayout(hLayout6);
     el::Switch* switch1 = new el::Switch("开关");
@@ -106,6 +109,14 @@ Widget::Widget(QWidget* parent)
     switch2->setDisabled(true);
     hLayout6->addWidget(switch1);
     hLayout6->addWidget(switch2);
+
+    // Avatar 头像
+    QHBoxLayout* hLayout7 = new QHBoxLayout();
+    vLayout->addLayout(hLayout7);
+    el::Avatar* avatar1 = new el::Avatar("姓");
+    el::Avatar* avatar2 = new el::Avatar(QImage(":/avatar.png"));
+    hLayout7->addWidget(avatar1);
+    hLayout7->addWidget(avatar2);
 
     setLayout(vLayout);
 }
