@@ -2,3 +2,7 @@
 	path = QtAwesome
 	url = https://github.com/gamecreature/QtAwesome
 	branch = main
+[submodule "FramelessWindow"]
+	path = FramelessWindow
+	url = https://github.com/winsoft666/Qt-FramelessWindow.git
+	branch = master
