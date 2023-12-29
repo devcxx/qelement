@@ -4,6 +4,7 @@
 #include "el_button.h"
 #include "el_input.h"
 #include "el_link.h"
+#include "el_messagebox.h"
 #include "el_switch.h"
 #include "ui_widget.h"
 
@@ -115,6 +116,22 @@ Widget::Widget(QWidget* parent)
     Avatar* avatar2 = new Avatar(QImage(":/avatar.png"));
     hLayout7->addWidget(avatar1);
     hLayout7->addWidget(avatar2);
+
+    // MessageBox 弹框
+    QHBoxLayout* hLayout8 = new QHBoxLayout();
+    vLayout->addLayout(hLayout8);
+    Button* btn7 = new Button("点击打开 Message Box", Button::BT_Default);
+    connect(btn7, &Button::clicked, [this]() {
+        int ret = MessageBox::alert(this, "标题名称", "这是一段内容", "确定");
+        qDebug() << ret;
+    });
+    Button* btn8 = new Button("点击打开 Message Box", Button::BT_Default);
+    connect(btn8, &Button::clicked, [this]() {
+        int ret = MessageBox::confirm(this, "提示", "此操作将永久删除该文件, 是否继续?", "确定", "取消");
+        qDebug() << ret;
+    });
+    hLayout8->addWidget(btn7);
+    hLayout8->addWidget(btn8);
 
     setLayout(vLayout);
 }

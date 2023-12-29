@@ -3,6 +3,8 @@ CONFIG += fontAwesomeFree
 
 include(QtAwesome/QtAwesome/QtAwesome.pri)
 
+INCLUDEPATH += $$PWD/FramelessWindow
+
 INCLUDEPATH += $$PWD
 
 HEADERS += \
@@ -12,6 +14,7 @@ HEADERS += \
     $$PWD/el_global.h \
     $$PWD/el_link.h \
     $$PWD/el_input.h \
+    $$PWD/el_messagebox.h \
     $$PWD/el_style.h \
     $$PWD/el_switch.h \
 
@@ -20,4 +23,5 @@ SOURCES += \
     $$PWD/el_button.cpp \
     $$PWD/el_link.cpp \
     $$PWD/el_input.cpp \
+    $$PWD/el_messagebox.cpp \
     $$PWD/el_switch.cpp \
