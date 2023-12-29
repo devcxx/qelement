@@ -4,15 +4,17 @@
 
 EL_BEGIN_NAMESPACE
 
-Link::Link(Type type, QWidget* parent)
-    : QLabel(parent)
+Link::Link(const QString& text, const QString link, Type type, QWidget* parent)
+    : QLabel(text, parent)
+    , _link(link)
 {
     QWidget::setAttribute(Qt::WA_TranslucentBackground);
     QString styleSheet;
-    styleSheet += QString("QLabel { color : %1;font-family: Microsoft YaHei;font-size: 14px; max-height: 40px; }").arg(getColor(type));
+    styleSheet += QString("QLabel { color : %1;font-family: Microsoft YaHei;font-size: 14px;}").arg(getColor(type));
     styleSheet += QString("QLabel::disabled { color : %1;}").arg(getDisabledColor(type));
     setStyleSheet(styleSheet);
     setMouseTracking(true);
+    autoResize(text);
 }
 
 void Link::setLink(const QString& url)
@@ -41,6 +43,16 @@ void Link::leaveEvent(QEvent* event)
 {
     setCursor(Qt::ArrowCursor);
     QLabel::leaveEvent(event);
+}
+
+void Link::autoResize(const QString& text)
+{
+    QFont font("Microsoft YaHei");
+    font.setPixelSize(14);
+    QFontMetrics metrics(font);
+    QSize size = metrics.boundingRect(text).size();
+    int newWidth = size.width() + 30;
+    setFixedSize(newWidth, 40);
 }
 
 QString Link::getColor(Type type)

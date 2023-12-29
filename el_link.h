@@ -20,7 +20,8 @@ public:
         Info // 信息链接
     };
     Q_ENUM(Type)
-    Link(Type type = Default, QWidget* parent = nullptr);
+
+    Link(const QString& text, const QString link, Type type = Default, QWidget* parent = nullptr);
     void setLink(const QString& link);
     QString getLink();
 
@@ -34,6 +35,7 @@ protected:
 
     QString getColor(Type type);
     QString getDisabledColor(Type type);
+    void autoResize(const QString& text);
 
 private:
     QString _link;

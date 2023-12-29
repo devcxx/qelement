@@ -17,11 +17,12 @@ Button::Button(const QString& text, const QIcon& icon, ButtonType type, ButtonSt
     : QPushButton(icon, text, parent)
 {
     QString styleSheet;
-    styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px; min-height: 40px; }";
+    styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px;}";
     styleSheet += getBorderStyle(type, style);
     styleSheet += getColorStyle(type);
     styleSheet += getBkColorStyle(type);
     setStyleSheet(styleSheet);
+    autoResize(text, icon.isNull());
 }
 
 Button::Button(int character, ButtonType type, ButtonStyle style, QWidget* parent)
@@ -44,14 +45,30 @@ Button::Button(const QString& text, int character, ButtonType type, ButtonStyle 
     QIcon icon = fa::QtAwesome::instance().icon(fa::fa_solid, character, options);
     setIcon(icon);
     QString styleSheet;
-    styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px; min-height: 40px;}";
+    styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px;}";
     styleSheet += getBorderStyle(type, style);
     styleSheet += getColorStyle(type);
     styleSheet += getBkColorStyle(type);
     setStyleSheet(styleSheet);
+
     if (style == BS_Circle) {
         setFixedSize(40, 40);
+    } else {
+        autoResize(text, true);
     }
+}
+
+void Button::autoResize(const QString& text, bool hasIcon)
+{
+    QFont font("Microsoft YaHei");
+    font.setPixelSize(14);
+    QFontMetrics metrics(font);
+    QSize size = metrics.boundingRect(text).size();
+    int newWidth = size.width() + 30;
+    if (hasIcon) {
+        newWidth += iconSize().width();
+    }
+    setFixedSize(newWidth, 40);
 }
 
 QString Button::getBorderStyle(ButtonType type, ButtonStyle style)
