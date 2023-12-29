@@ -1,5 +1,5 @@
 #include "el_button.h"
-#include "QtAwesome.h"
+#include "el_awesome.h"
 
 EL_BEGIN_NAMESPACE
 
@@ -42,7 +42,7 @@ Button::Button(const QString& text, int character, ButtonType type, ButtonStyle 
         options.insert("color-active", QColor(0xffffff));
     }
 
-    QIcon icon = fa::QtAwesome::instance().icon(fa::fa_solid, character, options);
+    QIcon icon = qAwesome->icon(fa::fa_solid, character, options);
     setIcon(icon);
     QString styleSheet;
     styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px;}";

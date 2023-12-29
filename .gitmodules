@@ -1,0 +1,4 @@
+[submodule "QtAwesome"]
+	path = QtAwesome
+	url = https://github.com/gamecreature/QtAwesome
+	branch = main

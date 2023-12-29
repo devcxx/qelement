@@ -1,12 +1,13 @@
 
 CONFIG += fontAwesomeFree
 
-include(QtAwesome/QtAwesome.pri)
+include(QtAwesome/QtAwesome/QtAwesome.pri)
 
 INCLUDEPATH += $$PWD
 
 HEADERS += \
     $$PWD/el_avatar.h \
+    $$PWD/el_awesome.h \
     $$PWD/el_button.h \
     $$PWD/el_global.h \
     $$PWD/el_link.h \

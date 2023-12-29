@@ -1,5 +1,5 @@
 #include "el_input.h"
-#include "QtAwesome.h"
+#include "el_awesome.h"
 #include "el_style.h"
 #include <QApplication>
 #include <QStyle>
@@ -23,19 +23,19 @@ Input::Input(Type type, QWidget* parent)
 
     if (type == Type::Clearable) {
         QAction* clearAction = new QAction;
-        clearAction->setIcon(fa::QtAwesome::instance().icon(fa::fa_solid, fa::fa_xmark_circle, options));
+        clearAction->setIcon(qAwesome->icon(fa::fa_solid, fa::fa_xmark_circle, options));
         addAction(clearAction, QLineEdit::TrailingPosition);
         connect(clearAction, &QAction::triggered, this, [this] { this->clear(); });
     } else if (type == Type::ShowPassword) {
         setEchoMode(QLineEdit::Password);
         QAction* showPasswordAction = new QAction;
         showPasswordAction->setCheckable(true);
-        showPasswordAction->setIcon(fa::QtAwesome::instance().icon(fa::fa_solid, fa::fa_eye, options));
+        showPasswordAction->setIcon(qAwesome->icon(fa::fa_solid, fa::fa_eye, options));
         addAction(showPasswordAction, QLineEdit::TrailingPosition);
         connect(showPasswordAction, &QAction::triggered, this, [this](bool show) { this->setEchoMode(show ? QLineEdit::Normal : QLineEdit::Password); });
     } else if (type == Type::Calendar) {
         QAction* calendarAction = new QAction;
-        calendarAction->setIcon(fa::QtAwesome::instance().icon(fa::fa_solid, fa::fa_calendar_days, options));
+        calendarAction->setIcon(qAwesome->icon(fa::fa_solid, fa::fa_calendar_days, options));
         calendarAction->setCheckable(true);
         addAction(calendarAction, QLineEdit::TrailingPosition);
         connect(calendarAction, &QAction::triggered, this, [this](bool show) {
