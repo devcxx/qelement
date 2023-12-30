@@ -127,18 +127,24 @@ Widget::Widget(QWidget* parent)
     // MessageBox 弹框
     QHBoxLayout* hLayout8 = new QHBoxLayout();
     vLayout->addLayout(hLayout8);
-    Button* btn7 = new Button("点击打开 Message Box", Button::BT_Default);
+    Button* btn7 = new Button("消息提示 Message Box", Button::BT_Default);
     connect(btn7, &Button::clicked, [this]() {
         int ret = MessageBox::alert(this, "标题名称", "这是一段内容", "确定");
         qDebug() << ret;
     });
-    Button* btn8 = new Button("点击打开 Message Box", Button::BT_Default);
+    Button* btn8 = new Button("确认消息 Message Box", Button::BT_Default);
     connect(btn8, &Button::clicked, [this]() {
         int ret = MessageBox::confirm(this, "提示", "此操作将永久删除该文件, 是否继续?", "确定", "取消");
         qDebug() << ret;
     });
+    Button* btn9 = new Button("错误消息 Message Box", Button::BT_Default);
+    connect(btn9, &Button::clicked, [this]() {
+        int ret = MessageBox::error(this, "错误", "文件不存在！\n请重新选择", "确定");
+        qDebug() << ret;
+    });
     hLayout8->addWidget(btn7);
     hLayout8->addWidget(btn8);
+    hLayout8->addWidget(btn9);
 
     setLayout(vLayout);
 }

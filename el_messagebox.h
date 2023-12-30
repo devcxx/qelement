@@ -39,6 +39,8 @@ public:
     // 确认消息
     static int confirm(QWidget* parent, const QString& title, const QString& text,
         const QString& confirmButtonText, const QString& cancelButtonText);
+    // 错误消息
+    static int error(QWidget* parent, const QString& title, const QString& text, const QString& confirmButtonText);
 
 protected:
     static StandardButton showNewMessageBox(QWidget* parent, const QIcon& icon, const QString& title, const QString& text,

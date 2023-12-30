@@ -34,6 +34,16 @@ int MessageBox::confirm(QWidget* parent, const QString& title, const QString& te
         { { StandardButton::Cancel, cancelButtonText }, { StandardButton::Ok, confirmButtonText } });
 }
 
+int MessageBox::error(QWidget* parent, const QString& title, const QString& text, const QString& confirmButtonText)
+{
+    QVariantMap options;
+    options.insert("color", QColor(0xF56C6C));
+    QIcon icon = qAwesome->icon(fa::fa_solid, fa::fa_xmark_circle, options);
+    return showNewMessageBox(parent, icon, title, text, StandardButton::Ok,
+        StandardButton::Ok,
+        { { StandardButton::Ok, confirmButtonText } });
+}
+
 MessageBox::StandardButton MessageBox::showNewMessageBox(QWidget* parent, const QIcon& icon, const QString& title, const QString& text,
     StandardButtons buttons, StandardButton defaultButton, ButtonText buttonText)
 {
@@ -164,7 +174,7 @@ void MessageBox::setupLayout()
     mainLayout->addLayout(titleBar);
 
     QHBoxLayout* contentLayout = new QHBoxLayout;
-    contentLayout->setContentsMargins(10, 0, 10, 0);
+    contentLayout->setContentsMargins(15, 10, 15, 10);
     if (hasIcon)
         contentLayout->addWidget(_iconLabel, Qt::AlignCenter);
     _iconLabel->setVisible(hasIcon);
