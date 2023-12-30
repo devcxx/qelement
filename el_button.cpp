@@ -22,7 +22,6 @@ Button::Button(const QString& text, const QIcon& icon, ButtonType type, ButtonSt
     styleSheet += getColorStyle(type);
     styleSheet += getBkColorStyle(type);
     setStyleSheet(styleSheet);
-    autoResize(text, icon.isNull());
 }
 
 Button::Button(int character, ButtonType type, ButtonStyle style, QWidget* parent)
@@ -50,25 +49,17 @@ Button::Button(const QString& text, int character, ButtonType type, ButtonStyle 
     styleSheet += getColorStyle(type);
     styleSheet += getBkColorStyle(type);
     setStyleSheet(styleSheet);
-
-    if (style == BS_Circle) {
-        setFixedSize(40, 40);
-    } else {
-        autoResize(text, true);
-    }
 }
 
-void Button::autoResize(const QString& text, bool hasIcon)
+QSize Button::sizeHint() const
 {
+    if (text().isEmpty()) {
+        return QSize(40, 40);
+    }
     QFont font("Microsoft YaHei");
     font.setPixelSize(14);
     QFontMetrics metrics(font);
-    QSize size = metrics.boundingRect(text).size();
-    int newWidth = size.width() + 30;
-    if (hasIcon) {
-        newWidth += iconSize().width();
-    }
-    setFixedSize(newWidth, 40);
+    return QSize(metrics.boundingRect(text()).size().width() + 30, 40);
 }
 
 QString Button::getBorderStyle(ButtonType type, ButtonStyle style)

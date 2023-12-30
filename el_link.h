@@ -30,12 +30,12 @@ signals:
 
 protected:
     void mousePressEvent(QMouseEvent* event);
+    QSize sizeHint() const;
     void enterEvent(QEvent* event);
     void leaveEvent(QEvent* event);
 
     QString getColor(Type type);
     QString getDisabledColor(Type type);
-    void autoResize(const QString& text);
 
 private:
     QString _link;

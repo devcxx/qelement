@@ -39,7 +39,8 @@ public:
     Button(const QString& text, int character, ButtonType type = BT_Default, ButtonStyle style = BS_Default, QWidget* parent = nullptr);
 
 protected:
-    void autoResize(const QString& text, bool hasIcon);
+    QSize sizeHint() const;
+
     QString getBorderStyle(ButtonType type, ButtonStyle style);
     QString getColorStyle(ButtonType type);
     QString getBkColorStyle(ButtonType type);
