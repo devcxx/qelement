@@ -6,6 +6,7 @@
 #include "el_link.h"
 #include "el_messagebox.h"
 #include "el_switch.h"
+#include "el_checkbox.h"
 #include "ui_widget.h"
 
 #include <QGraphicsDropShadowEffect>
@@ -108,6 +109,12 @@ Widget::Widget(QWidget* parent)
     switch2->setDisabled(true);
     hLayout6->addWidget(switch1);
     hLayout6->addWidget(switch2);
+
+    // Checkbox 多选框
+    Checkbox* cbx1 = new Checkbox("备选项");
+    Checkbox* cbx2 = new Checkbox("备选项", Checkbox::LP_Left);
+    hLayout6->addWidget(cbx1);
+    hLayout6->addWidget(cbx2);
 
     // Avatar 头像
     QHBoxLayout* hLayout7 = new QHBoxLayout();
