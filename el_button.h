@@ -1,5 +1,5 @@
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef EL_BUTTON_H
+#define EL_BUTTON_H
 
 #include "el_global.h"
 #include <QPushButton>
@@ -7,7 +7,7 @@
 EL_BEGIN_NAMESPACE
 
 // Button 按钮
-class Button : public QPushButton {
+class EL_EXPORT Button : public QPushButton {
     Q_OBJECT
 public:
     enum ButtonType {
@@ -47,4 +47,4 @@ protected:
 
 EL_END_NAMESPACE
 
-#endif // BUTTON_H
+#endif // EL_BUTTON_H

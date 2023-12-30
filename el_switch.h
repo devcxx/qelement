@@ -12,7 +12,7 @@ QT_END_NAMESPACE
 EL_BEGIN_NAMESPACE
 
 // Switch 开关
-class Switch final : public QAbstractButton {
+class EL_EXPORT Switch final : public QAbstractButton {
     Q_OBJECT
     Q_PROPERTY(int thumbPosition READ thumbPosition WRITE setThumbPosition NOTIFY thumbPositionChanged FINAL)
 

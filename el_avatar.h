@@ -1,5 +1,5 @@
-#ifndef AVATAR_H
-#define AVATAR_H
+#ifndef EL_AVATAR_H
+#define EL_AVATAR_H
 
 #include "el_global.h"
 
@@ -10,7 +10,7 @@
 EL_BEGIN_NAMESPACE
 
 // Avatar 头像
-class Avatar : public QWidget {
+class EL_EXPORT Avatar : public QWidget {
     Q_OBJECT
 public:
     enum Type {
@@ -50,4 +50,4 @@ private:
 
 EL_END_NAMESPACE
 
-#endif // AVATAR_H
+#endif // EL_AVATAR_H

@@ -8,7 +8,7 @@
 EL_BEGIN_NAMESPACE
 
 // Input 输入框
-class Input : public QLineEdit {
+class EL_EXPORT Input : public QLineEdit {
     Q_OBJECT
 
 public:
