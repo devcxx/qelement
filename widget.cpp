@@ -8,6 +8,7 @@
 #include "el_messagebox.h"
 #include "el_select.h"
 #include "el_switch.h"
+#include "el_inputnumber.h"
 #include "ui_widget.h"
 
 #include <QDebug>
@@ -156,6 +157,11 @@ Widget::Widget(QWidget* parent)
                                     << "蚵仔煎"
                                     << "龙须面");
     hLayout9->addWidget(select1);
+
+    QHBoxLayout* hLayout10 = new QHBoxLayout();
+    vLayout->addLayout(hLayout10);
+    InputNumber* inputNum1 = new InputNumber(0, 10);
+    hLayout10->addWidget(inputNum1);
 
     setLayout(vLayout);
 }

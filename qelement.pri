@@ -13,6 +13,7 @@ HEADERS += \
     $$PWD/el_button.h \
     $$PWD/el_checkbox.h \
     $$PWD/el_global.h \
+    $$PWD/el_inputnumber.h \
     $$PWD/el_link.h \
     $$PWD/el_input.h \
     $$PWD/el_messagebox.h \
@@ -24,6 +25,7 @@ SOURCES += \
     $$PWD/el_avatar.cpp \
     $$PWD/el_button.cpp \
     $$PWD/el_checkbox.cpp \
+    $$PWD/el_inputnumber.cpp \
     $$PWD/el_link.cpp \
     $$PWD/el_input.cpp \
     $$PWD/el_messagebox.cpp \
