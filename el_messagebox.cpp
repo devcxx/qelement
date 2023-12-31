@@ -110,7 +110,7 @@ void MessageBox::init(const QIcon& icon, const QString& title, const QString& te
         setText(text);
     }
 
-    setContentsMargins(12, 12, 12, 12);
+    setContentsMargins(14, 14, 14, 14);
     setMinimumSize(400, 200);
 
     setModal(true);
@@ -144,9 +144,9 @@ void MessageBox::setupLayout()
 
     // 创建窗口阴影效果
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect();
-    shadow->setColor(QColor(0, 0, 0, 60));
-    shadow->setOffset(2, 2);
-    shadow->setBlurRadius(12);
+    shadow->setColor(QColor(0, 0, 0, 64));
+    shadow->setOffset(0, 2);
+    shadow->setBlurRadius(14);
     centralWidget->setGraphicsEffect(shadow);
 
     const QPixmap* piamap = _iconLabel->pixmap();
