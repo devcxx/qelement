@@ -2,17 +2,18 @@
 #include "QtAwesome.h"
 #include "el_avatar.h"
 #include "el_button.h"
+#include "el_checkbox.h"
 #include "el_input.h"
 #include "el_link.h"
 #include "el_messagebox.h"
+#include "el_select.h"
 #include "el_switch.h"
-#include "el_checkbox.h"
 #include "ui_widget.h"
 
+#include <QDebug>
 #include <QGraphicsDropShadowEffect>
 #include <QHBoxLayout>
-
-#include <QDebug>
+#include <QStringList>
 
 using namespace el;
 
@@ -145,6 +146,16 @@ Widget::Widget(QWidget* parent)
     hLayout8->addWidget(btn7);
     hLayout8->addWidget(btn8);
     hLayout8->addWidget(btn9);
+
+    // Select 选择器
+    QHBoxLayout* hLayout9 = new QHBoxLayout();
+    vLayout->addLayout(hLayout9);
+    Select* select1 = new Select();
+    select1->addItems(QStringList() << "黄金糕"
+                                    << "双皮奶"
+                                    << "蚵仔煎"
+                                    << "龙须面");
+    hLayout9->addWidget(select1);
 
     setLayout(vLayout);
 }
