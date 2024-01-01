@@ -1,10 +1,7 @@
 #include "el_inputnumber.h"
 #include "el_awesome.h"
 
-#include <QAction>
-#include <QHBoxLayout>
 #include <QIntValidator>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QResizeEvent>
 #include <QStyle>
@@ -27,6 +24,8 @@ InputNumber::InputNumber(int min, int max, QWidget* parent)
     minusStyle += "QPushButton { border-top-left-radius: 4px; border-bottom-left-radius: 4px;} ";
     _minusBtn->setStyleSheet(minusStyle);
     _minusBtn->setFocusProxy(this);
+    _minusBtn->setMouseTracking(true);
+
     connect(_minusBtn, &QPushButton::pressed, [this, min] {
         int value = text().toInt();
         value--;
@@ -43,6 +42,7 @@ InputNumber::InputNumber(int min, int max, QWidget* parent)
     plusStyle += "QPushButton { border-top-right-radius: 4px; border-bottom-right-radius: 4px;} ";
     _plusBtn->setStyleSheet(plusStyle);
     _plusBtn->setFocusProxy(this);
+    _plusBtn->setMouseTracking(true);
     connect(_plusBtn, &QPushButton::pressed, [this, max] {
         int value = text().toInt();
         value++;
@@ -73,6 +73,16 @@ void InputNumber::resizeEvent(QResizeEvent* event)
         sz = _plusBtn->sizeHint();
         _plusBtn->move(rect().right() - frameWidth - sz.width(),
             (rect().bottom() - sz.height()) / 2);
+    }
+}
+
+void InputNumber::mouseMoveEvent(QMouseEvent* event)
+{
+    if (_minusBtn->geometry().contains(event->pos())
+        || _plusBtn->geometry().contains(event->pos())) {
+        setCursor(Qt::PointingHandCursor);
+    } else {
+        setCursor(Qt::IBeamCursor);
     }
 }
 
