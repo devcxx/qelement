@@ -16,6 +16,8 @@ Button::Button(const QIcon& icon, ButtonType type, ButtonStyle style, QWidget* p
 Button::Button(const QString& text, const QIcon& icon, ButtonType type, ButtonStyle style, QWidget* parent)
     : QPushButton(icon, text, parent)
 {
+    setCursor(Qt::PointingHandCursor);
+
     QString styleSheet;
     styleSheet += "QPushButton {font-family: Microsoft YaHei; font-size: 14px;}";
     styleSheet += getBorderStyle(type, style);
@@ -32,6 +34,8 @@ Button::Button(int character, ButtonType type, ButtonStyle style, QWidget* paren
 Button::Button(const QString& text, int character, ButtonType type, ButtonStyle style, QWidget* parent)
     : QPushButton(text, parent)
 {
+    setCursor(Qt::PointingHandCursor);
+
     QVariantMap options;
     if (type == BT_Default) {
         options.insert("color", QColor(0x606266));

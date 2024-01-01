@@ -10,6 +10,7 @@ Checkbox::Checkbox(const QString& text, LabelPosition placement, QWidget* parent
     , _placement(placement)
 {
     setText(text);
+    setCursor(Qt::PointingHandCursor);
     setCheckable(true);
 }
 
