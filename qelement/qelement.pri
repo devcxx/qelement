@@ -1,9 +1,9 @@
 
 CONFIG += fontAwesomeFree
 
-include(QtAwesome/QtAwesome/QtAwesome.pri)
+include($$PWD/../QtAwesome/QtAwesome/QtAwesome.pri)
 
-INCLUDEPATH += $$PWD/FramelessWindow
+INCLUDEPATH += $$PWD/../FramelessWindow
 
 INCLUDEPATH += $$PWD
 

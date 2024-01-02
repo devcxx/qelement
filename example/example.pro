@@ -7,7 +7,7 @@ CONFIG += c++17
 QMAKE_CFLAGS += /utf-8
 QMAKE_CXXFLAGS += /utf-8
 
-include(qelement.pri)
+include(../qelement/qelement.pri)
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
