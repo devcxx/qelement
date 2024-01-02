@@ -4,6 +4,41 @@
 
 部分控件通过QSS方式实现，部分通过重写QWidget的paintEvent方式实现
 
+## Button 按钮
+- 默认按钮
+
+![截图](snap/btn1.png)
+
+- 圆角按钮
+  
+![截图](snap/btn2.png)
+
+- 图标按钮
+
+![截图](snap/btn3.png)
+
+## Switch 开关
+
+![截图](snap/switchbtn1.png)
+
+## Avatar 头像
+
+![截图](snap/avatar1.png)
+
+## InputNumber 计数器
+
+![截图](snap/inputnum1.png)
+
+## MessageBox 弹框
+
+- 消息提示
+
+![截图](snap/msgbox2.png)
+
+- 错误提示
+  
+![截图](snap/msgbox3.png)
+
 ## 已实现组件
 
 - [x] Button 按钮 
