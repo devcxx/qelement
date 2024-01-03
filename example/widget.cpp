@@ -9,12 +9,14 @@
 #include "el_select.h"
 #include "el_switch.h"
 #include "el_inputnumber.h"
+#include "el_radio.h"
 #include "ui_widget.h"
 
 #include <QDebug>
 #include <QGraphicsDropShadowEffect>
 #include <QHBoxLayout>
 #include <QStringList>
+#include <QButtonGroup>
 
 using namespace el;
 
@@ -115,8 +117,17 @@ Widget::Widget(QWidget* parent)
     // Checkbox 多选框
     Checkbox* cbx1 = new Checkbox("备选项");
     Checkbox* cbx2 = new Checkbox("备选项", Checkbox::LP_Left);
+    Radio* rdo1 = new Radio("单选项1");
+    Radio* rdo2 = new Radio("单选项2");
+    QButtonGroup *group = new QButtonGroup(this);
+    group->addButton(rdo1);
+    group->addButton(rdo2);
+    group->setExclusive(true);
+
     hLayout6->addWidget(cbx1);
     hLayout6->addWidget(cbx2);
+    hLayout6->addWidget(rdo1);
+    hLayout6->addWidget(rdo2);
 
     // Avatar 头像
     QHBoxLayout* hLayout7 = new QHBoxLayout();
