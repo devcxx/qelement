@@ -17,6 +17,14 @@
 
 ![截图](snap/btn3.png)
 
+## Checkbox 多选框
+
+![截图](snap/checkbox1.png)
+
+## Radio 单选框
+
+![截图](snap/radiobtn1.png)
+
 ## Switch 开关
 
 ![截图](snap/switchbtn1.png)
@@ -43,6 +51,7 @@
 
 - [x] Button 按钮 
 - [x] Checkbox 多选框
+- [x] Radio 单选框
 - [x] Input 输入框
 - [x] InputNumber 计数器
 - [x] Select 选择器
