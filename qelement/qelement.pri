@@ -11,6 +11,7 @@ HEADERS += \
     $$PWD/el_avatar.h \
     $$PWD/el_awesome.h \
     $$PWD/el_button.h \
+    $$PWD/el_card.h \
     $$PWD/el_checkbox.h \
     $$PWD/el_global.h \
     $$PWD/el_inputnumber.h \
@@ -25,6 +26,7 @@ HEADERS += \
 SOURCES += \
     $$PWD/el_avatar.cpp \
     $$PWD/el_button.cpp \
+    $$PWD/el_card.cpp \
     $$PWD/el_checkbox.cpp \
     $$PWD/el_inputnumber.cpp \
     $$PWD/el_link.cpp \

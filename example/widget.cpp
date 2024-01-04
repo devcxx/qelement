@@ -10,6 +10,7 @@
 #include "el_switch.h"
 #include "el_inputnumber.h"
 #include "el_radio.h"
+#include "el_card.h"
 #include "ui_widget.h"
 
 #include <QDebug>
@@ -174,6 +175,13 @@ Widget::Widget(QWidget* parent)
     InputNumber* inputNum1 = new InputNumber(0, 10);
     hLayout10->addWidget(inputNum1);
 
+    QHBoxLayout* hLayout11 = new QHBoxLayout();
+    vLayout->addLayout(hLayout11);
+    Card* card1 = new Card(QIcon(":/avatar.png"), "卡片名称1", "列表内容 1");
+    Card* card2 = new Card(QIcon(":/avatar.png"), "卡片名称2", "列表内容 1");
+    card2->setEnabled(false);
+    hLayout11->addWidget(card1);
+    hLayout11->addWidget(card2);
     setLayout(vLayout);
 }
 
