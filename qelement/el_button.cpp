@@ -3,6 +3,12 @@
 
 EL_BEGIN_NAMESPACE
 
+Button::Button(QWidget *parent)
+    :QPushButton(parent)
+{
+
+}
+
 Button::Button(const QString& text, ButtonType type, ButtonStyle style, QWidget* parent)
     : Button(text, QIcon(), type, style, parent)
 {
@@ -16,6 +22,23 @@ Button::Button(const QIcon& icon, ButtonType type, ButtonStyle style, QWidget* p
 Button::Button(const QString& text, const QIcon& icon, ButtonType type, ButtonStyle style, QWidget* parent)
     : QPushButton(icon, text, parent)
 {
+    init(type, style);
+}
+
+Button::Button(int character, ButtonType type, ButtonStyle style, QWidget* parent)
+    : Button(QString(), character, type, style, parent)
+{
+}
+
+Button::Button(const QString& text, int character, ButtonType type, ButtonStyle style, QWidget* parent)
+    : QPushButton(text, parent)
+{
+    init(character, type, style);
+}
+
+void Button::init(ButtonType type, ButtonStyle style)
+{
+
     setCursor(Qt::PointingHandCursor);
 
     QString styleSheet;
@@ -26,13 +49,13 @@ Button::Button(const QString& text, const QIcon& icon, ButtonType type, ButtonSt
     setStyleSheet(styleSheet);
 }
 
-Button::Button(int character, ButtonType type, ButtonStyle style, QWidget* parent)
-    : Button(QString(), character, type, style, parent)
+void Button::init(const QIcon& icon, ButtonType type, ButtonStyle style)
 {
+    init(type, style);
+    setIcon(icon);
 }
 
-Button::Button(const QString& text, int character, ButtonType type, ButtonStyle style, QWidget* parent)
-    : QPushButton(text, parent)
+void Button::init(int character, ButtonType type, ButtonStyle style)
 {
     setCursor(Qt::PointingHandCursor);
 

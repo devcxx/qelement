@@ -24,6 +24,8 @@ public:
     void setTrackColor(const QColor& trackOnColor, const QColor& trackOffColor);
     // 设置滑块 激活/未激活 颜色
     void setThumbColor(const QColor& thumbOnColor, const QColor& thumbOffColor);
+    void setHieght(int nHeight);
+    void setRadius(qreal corner_radius, qreal thumb_radius);
 
     virtual QSize sizeHint() const override;
 
@@ -45,7 +47,7 @@ private:
     void setThumbPosition(const int& thumbPosition);
     int thumbPosition();
 
-    const qreal CORNER_RADIUS, THUMB_RADIUS, SHADOW_ELEVATION;
+    qreal CORNER_RADIUS, THUMB_RADIUS, SHADOW_ELEVATION;
     int height;
     QMargins indicatorMargin;
 
