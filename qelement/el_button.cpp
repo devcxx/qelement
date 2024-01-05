@@ -76,6 +76,9 @@ void Button::init(int character, ButtonType type, ButtonStyle style)
     styleSheet += getColorStyle(type);
     styleSheet += getBkColorStyle(type);
     setStyleSheet(styleSheet);
+    if (text.isEmpty()) {
+        setFixedSize(40, 40);
+    }
 }
 
 QSize Button::sizeHint() const

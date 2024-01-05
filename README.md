@@ -37,6 +37,10 @@
 
 ![截图](snap/inputnum1.png)
 
+## Card 卡片
+
+![截图](snap/card1.png)
+
 ## MessageBox 弹框
 
 - 消息提示
