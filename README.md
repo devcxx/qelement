@@ -41,6 +41,10 @@
 
 ![截图](snap/card1.png)
 
+## Slider 滑块
+
+![截图](snap/slider1.png)
+
 ## MessageBox 弹框
 
 - 消息提示
@@ -63,10 +67,11 @@
 - [x] Switch 开关
 - [x] Avatar 头像
 - [x] MessageBox 弹框
+- [x] Slider 滑块
+
   
 ## 未实现组件
 
-- [ ] Slider 滑块
 - [ ] Progress 进度条
 - [ ] Tabs 标签页
 - [ ] Badge 标记
