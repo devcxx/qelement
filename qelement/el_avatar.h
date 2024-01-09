@@ -2,6 +2,7 @@
 #define EL_AVATAR_H
 
 #include "el_global.h"
+#include "el_imageprovider.h"
 
 #include <QIcon>
 #include <QObject>
@@ -34,10 +35,15 @@ public:
     void setImage(const QImage& image);
     void setIcon(const QIcon& icon);
 
+    void setUrl(const QString& url);
+
     Type type() const;
 
 protected:
     void paintEvent(QPaintEvent* event) Q_DECL_OVERRIDE;
+
+protected slots:
+    void onImageReady(QString url, QString filePath);
 
 private:
     int _size = 40;
@@ -46,6 +52,7 @@ private:
     QImage _image;
     QIcon _icon;
     QPixmap _pixmap;
+    ImageProvider _provider;
 };
 
 EL_END_NAMESPACE

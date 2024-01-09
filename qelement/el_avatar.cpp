@@ -1,5 +1,6 @@
 #include "el_avatar.h"
 
+#include <QFile>
 #include <QPainter>
 #include <QPainterPath>
 
@@ -11,6 +12,8 @@ Avatar::Avatar(QWidget* parent)
     QSizePolicy policy(QSizePolicy::MinimumExpanding,
         QSizePolicy::MinimumExpanding);
     setSizePolicy(policy);
+
+    connect(&_provider, &ImageProvider::imageReady, this, &Avatar::onImageReady);
 }
 
 Avatar::Avatar(const QIcon& icon, QWidget* parent)
@@ -77,6 +80,23 @@ void Avatar::setIcon(const QIcon& icon)
     _icon = icon;
     _type = Icon;
     update();
+}
+
+void Avatar::setUrl(const QString& url)
+{
+    if (url.isEmpty()) {
+        return;
+    }
+    _provider.getNetworkImage(url);
+}
+
+void Avatar::onImageReady(QString url, QString filePath)
+{
+    Q_UNUSED(url)
+    if (QFile::exists(filePath)) {
+        setImage(QImage(filePath));
+        return;
+    }
 }
 
 Avatar::Type Avatar::type() const

@@ -1,4 +1,6 @@
 
+QT       += network
+
 CONFIG += fontAwesomeFree
 
 include($$PWD/../QtAwesome/QtAwesome/QtAwesome.pri)
@@ -14,6 +16,7 @@ HEADERS += \
     $$PWD/el_card.h \
     $$PWD/el_checkbox.h \
     $$PWD/el_global.h \
+    $$PWD/el_imageprovider.h \
     $$PWD/el_inputnumber.h \
     $$PWD/el_link.h \
     $$PWD/el_input.h \
@@ -28,6 +31,7 @@ SOURCES += \
     $$PWD/el_button.cpp \
     $$PWD/el_card.cpp \
     $$PWD/el_checkbox.cpp \
+    $$PWD/el_imageprovider.cpp \
     $$PWD/el_inputnumber.cpp \
     $$PWD/el_link.cpp \
     $$PWD/el_input.cpp \
