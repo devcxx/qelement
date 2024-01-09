@@ -27,6 +27,7 @@ public:
     };
     Q_ENUM(ButtonStyle)
 
+    explicit Button(QWidget *parent = nullptr);
     // 默认按钮
     Button(const QString& text, ButtonType type = BT_Default, ButtonStyle style = BS_Default, QWidget* parent = nullptr);
     // 图标按钮
@@ -38,6 +39,9 @@ public:
     // FontAwesome文字图标按钮
     Button(const QString& text, int character, ButtonType type = BT_Default, ButtonStyle style = BS_Default, QWidget* parent = nullptr);
 
+    void init(ButtonType type = BT_Default, ButtonStyle style = BS_Default);
+    void init(const QIcon& icon, ButtonType type = BT_Default, ButtonStyle style = BS_Default);
+    void init(int character, ButtonType type = BT_Default, ButtonStyle style = BS_Circle);
 protected:
     QSize sizeHint() const;
 

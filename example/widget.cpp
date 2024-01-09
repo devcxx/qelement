@@ -11,6 +11,7 @@
 #include "el_inputnumber.h"
 #include "el_radio.h"
 #include "el_card.h"
+#include "el_slider.h"
 #include "ui_widget.h"
 
 #include <QDebug>
@@ -182,6 +183,12 @@ Widget::Widget(QWidget* parent)
     card2->setEnabled(false);
     hLayout11->addWidget(card1);
     hLayout11->addWidget(card2);
+
+    QHBoxLayout* hLayout12 = new QHBoxLayout();
+    vLayout->addLayout(hLayout12);
+    Slider* slider1 = new Slider();
+    hLayout12->addWidget(slider1);
+
     setLayout(vLayout);
 }
 

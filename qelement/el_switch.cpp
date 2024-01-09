@@ -92,6 +92,18 @@ void Switch::setThumbColor(const QColor& thumbOnColor, const QColor& thumbOffCol
     this->thumbOffColor = thumbOffColor;
 }
 
+void Switch::setHieght(int nHeight)
+{
+    this->height = nHeight;
+}
+
+void Switch::setRadius(qreal corner_radius, qreal thumb_radius)
+{
+    CORNER_RADIUS = corner_radius;
+    THUMB_RADIUS = thumb_radius;
+    shadowPixmap = drawShadowEllipse(THUMB_RADIUS, SHADOW_ELEVATION, QColor(0, 0, 0, 70));
+}
+
 QSize Switch::sizeHint() const
 {
     auto w { indicatorMargin.left()
