@@ -18,6 +18,7 @@ HEADERS += \
     $$PWD/el_global.h \
     $$PWD/el_imageprovider.h \
     $$PWD/el_inputnumber.h \
+    $$PWD/el_lineprogress.h \
     $$PWD/el_link.h \
     $$PWD/el_input.h \
     $$PWD/el_messagebox.h \
@@ -34,6 +35,7 @@ SOURCES += \
     $$PWD/el_checkbox.cpp \
     $$PWD/el_imageprovider.cpp \
     $$PWD/el_inputnumber.cpp \
+    $$PWD/el_lineprogress.cpp \
     $$PWD/el_link.cpp \
     $$PWD/el_input.cpp \
     $$PWD/el_messagebox.cpp \
