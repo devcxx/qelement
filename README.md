@@ -84,3 +84,8 @@
 
 - [ ] Tabs 标签页
 - [ ] Badge 标记
+- [ ] Table 表格
+- [ ] Tag 标签
+- [ ] Alert 警告
+- [ ] Loading 加载
+- [ ] Tooltip 文字提示
