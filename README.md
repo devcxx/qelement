@@ -61,6 +61,10 @@
 
 ![截图](snap/lineprogress1.png)
 
+- 环形进度条
+
+![截图](snap/circleprogress1.png)
+
 ## 已实现组件
 
 - [x] Button 按钮 
@@ -74,10 +78,9 @@
 - [x] Avatar 头像
 - [x] MessageBox 弹框
 - [x] Slider 滑块
-
+- [x] Progress 进度条
   
 ## 未实现组件
 
-- [ ] Progress 进度条
 - [ ] Tabs 标签页
 - [ ] Badge 标记

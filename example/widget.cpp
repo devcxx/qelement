@@ -13,6 +13,7 @@
 #include "el_card.h"
 #include "el_slider.h"
 #include "el_lineprogress.h"
+#include "el_circleprogress.h"
 #include "ui_widget.h"
 
 #include <QDebug>
@@ -199,6 +200,17 @@ Widget::Widget(QWidget* parent)
     hLayout12->addWidget(lineProgress1);
     hLayout12->addWidget(lineProgress2);
     hLayout12->addWidget(lineProgress3);
+
+    // 环形进度条
+    QHBoxLayout* hLayout13 = new QHBoxLayout();
+    vLayout->addLayout(hLayout13);
+    CircleProgress* circleProgress1 = new CircleProgress();
+    circleProgress1->setPercent(60);
+    hLayout13->addWidget(circleProgress1);
+    CircleProgress* circleProgress2 = new CircleProgress();
+    circleProgress2->setPercent(80);
+    circleProgress2->setStatus(CircleProgress::Exception);
+    hLayout13->addWidget(circleProgress2);
 
     setLayout(vLayout);
 }
