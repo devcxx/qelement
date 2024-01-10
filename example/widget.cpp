@@ -12,6 +12,7 @@
 #include "el_radio.h"
 #include "el_card.h"
 #include "el_slider.h"
+#include "el_lineprogress.h"
 #include "ui_widget.h"
 
 #include <QDebug>
@@ -184,10 +185,20 @@ Widget::Widget(QWidget* parent)
     hLayout11->addWidget(card1);
     hLayout11->addWidget(card2);
 
+    // 线形进度条
     QHBoxLayout* hLayout12 = new QHBoxLayout();
     vLayout->addLayout(hLayout12);
-    Slider* slider1 = new Slider();
-    hLayout12->addWidget(slider1);
+    LineProgress* lineProgress1 = new LineProgress();
+    lineProgress1->setValue(50);
+    LineProgress* lineProgress2 = new LineProgress();
+    lineProgress2->setValue(70);
+    lineProgress2->setStatus(LineProgress::Success);
+    LineProgress* lineProgress3 = new LineProgress();
+    lineProgress3->setValue(80);
+    lineProgress3->setStatus(LineProgress::Warning);
+    hLayout12->addWidget(lineProgress1);
+    hLayout12->addWidget(lineProgress2);
+    hLayout12->addWidget(lineProgress3);
 
     setLayout(vLayout);
 }

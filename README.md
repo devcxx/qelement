@@ -55,6 +55,12 @@
   
 ![截图](snap/msgbox3.png)
 
+## Progress 进度条
+
+- 线形进度条
+
+![截图](snap/lineprogress1.png)
+
 ## 已实现组件
 
 - [x] Button 按钮 
